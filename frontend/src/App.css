@@ -1,0 +1,94 @@
+.body{
+    padding: 0;
+    margin: 0;
+}
+.login-component {
+    background-image: url("/login-banner.jpg");
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+   
+    }
+   
+.login-form {
+   background-color: white;
+   padding: 40px;
+    height: 55%;
+width: 30%;
+}
+.bg-color {
+background-color:rgb(182, 209, 236);
+}
+.reset {
+    padding: 10px;
+    justify-content: center;
+    position: relative;
+}
+.reset-link {
+  color: rgb(17, 13, 13);
+  justify-content: right;
+    font-size: 14px;
+    text-align: left;
+}
+.reset-link:hover {
+  text-decoration: underline;
+  color: rgb(226, 226, 234);
+}
+.activityOverViewParentContainer {
+  background-color: white;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+.activityOverViewParentContainer {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 10px;
+  width: 30%;
+  height: 90%;
+}
+
+/* Individual box colors */
+.box-blue {
+  background-color: #B7D4FF;
+}
+
+.box-green {
+  background-color: #B8F6C9;
+}
+
+.box-yellow {
+  background-color: #FFF5A8;
+}
+
+.box-purple {
+  background-color: #D5C6FF;
+}
+
+/* Box styling */
+.activity-box {
+  width: 48%;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.logout-bg {
+  background-color: red !important;
+  color: white !important;
+  border-radius: 8px;
+  display: block;
+  height: 40px;
+  padding: 0;
+}
+
+.logout-bg div {
+  color: white !important;
+}
+
+.logout-bg:hover {
+  background-color: #cc0000 !important; /* Darker red on hover */
+}
+
+
