@@ -1,13 +1,20 @@
 import React from "react";
 import { RiAccountBoxFill } from "react-icons/ri";
+
+
+
+
 const DashboardAppointments = () => {
+
     return (
   <div  className="DashboardAppointmentParentContainer shadow-lg rounded p-3 bg-white"
   style={{width :"70%" ,height:"50%"}}>
-<h4> Appointment </h4>
-    {/*title*/}
+
+     {/*title*   */}
+<h4> Appointments </h4>
     <div className="d-flex justify-content-top align-items-center mb-2">
-      
+
+   
 <div className="DashboardAppointment w-100 h-50 justify-content-between shadow-lg rounded p-3 ms-2">
     <table class="table table-hover"
 >

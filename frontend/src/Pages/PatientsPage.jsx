@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useState }  from "react";
 import SideNav from "../components/common/SideNav";
 import Header from "../components/common/Header";
 import { AiFillMessage } from "react-icons/ai";
@@ -7,7 +7,60 @@ import { IoInformationCircleOutline } from "react-icons/io5";
 import { BiEdit } from "react-icons/bi";
 import { RiAccountPinBoxFill } from "react-icons/ri";
 
+
+ {/* added form for patient info*/ }
+
+const PatientForm = ({ closeForm }) => {
+  return (
+    <div className="shadow-lg rounded p-4 bg-white mt-3">
+      <h4 className="mb-3">Add New Patient </h4>
+
+      <div className="row">
+        <div className="col-md-6 mb-3">
+          <label>Patient Name</label>
+          <input type="text" className="form-control" />
+        </div>
+
+        <div className="col-md-3 mb-3">
+          <label>Age</label>
+          <input type="number" className="form-control" />
+        </div>
+
+        <div className="col-md-3 mb-3">
+          <label>Gender </label>
+          <input type="date" className="form-control" />
+        </div>
+
+        <div className="col-md-6 mb-3">
+          <label> Blood Group</label>
+          <input type="text" className="form-control" />
+        </div>
+
+        <div className="col-md-6 mb-3">
+          <label> phone </label>
+          <input type="text" className="form-control"  />
+        </div>
+      </div>
+      <div className="col-md-6 mb-3">
+          <label> email </label>
+          <input type="text" className="form-control"  />
+        </div>
+     
+      <div className="d-flex gap-2">
+        <button className="btn btn-success">Save Appointment</button>
+        <button className="btn btn-secondary" onClick={closeForm}>
+          Cancel
+        </button>
+      </div>
+    </div>
+  );
+};
+
+
+{/*main code*/}
+
 const PatientsPage = () => {
+   const [showForm, setShowForm] = useState(false);
   return (
     <div style={{ display: "flex" }}>
       <SideNav />
@@ -22,7 +75,9 @@ const PatientsPage = () => {
         <Header />
 
         {/* Title Row */}
-        <div
+
+         {showForm && <PatientForm closeForm={() => setShowForm(false)} />}
+          <div
           style={{
             display: "flex",
             gap: "10px",
@@ -33,7 +88,11 @@ const PatientsPage = () => {
             style={{ width: "90%", height: "100%" }}
           >
             <h2>Patient Info</h2>
-            <button className="add-btn bg-primary">+ New Patient</button>
+            {/* added onclick event */}
+           <button
+  className="add-btn bg-primary text-white btn"
+  onClick={() => setShowForm(true)}
+>  + new patient </button>
           </div>
         </div>
 

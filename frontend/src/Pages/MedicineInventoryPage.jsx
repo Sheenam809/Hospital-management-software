@@ -1,12 +1,59 @@
-import React from "react";
+import React , {useState} from "react";
 import SideNav from "../components/common/SideNav";
 import Header from "../components/common/Header";
 import { FaRegEdit } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
 
+const ProductForm = ({ closeForm }) => {
+  return (
+    <div className="shadow-lg rounded p-4 bg-white mt-3">
+      <h4 className="mb-3">Add New Product </h4>
+
+      <div className="row">
+        <div className="col-md-6 mb-3">
+          <label> Product Name</label>
+          <input type="text" className="form-control" />
+        </div>
+
+        <div className="col-md-3 mb-3">
+          <label> Type </label>
+          <input type="number" className="form-control" />
+        </div>
+
+        <div className="col-md-3 mb-3">
+          <label> Price </label>
+          <input type="date" className="form-control" />
+        </div>
+
+        <div className="col-md-6 mb-3">
+          <label> In stock </label>
+          <input type="text" className="form-control" />
+        </div>
+
+        <div className="col-md-6 mb-3">
+          <label> Expiry date  </label>
+          <input type="text" className="form-control"  />
+        </div>
+        <div className="col-md-6 mb-3">
+          <label> Manufacturer </label>
+          <input type="text" className="form-control"  />
+        </div>
+      </div>
+      
+      <div className="d-flex gap-2">
+        <button className="btn btn-success">Save Appointment</button>
+        <button className="btn btn-secondary" onClick={closeForm}>
+          Cancel
+        </button>
+      </div>
+    </div>
+  );
+};
+
 
 const MedicineInventoryPage = () => {
+  const [showForm, setShowForm] = useState(false);
   return (
     <div style={{ display: "flex" }}>
       <SideNav />
@@ -20,11 +67,14 @@ const MedicineInventoryPage = () => {
       >
         <Header />
         <div className="p-2 bg-color">
+           {showForm && <PatientForm closeForm={() => setShowForm(false)} />}
           <div className="shadow-lg d-flex justify-content-between m-3 p-3 bg-white text-align-center">
+            
             <h2> Medicine </h2>
-            <button className="add-btn bg-primary text-white btn">
-              + Add Product
-            </button>
+            <button
+  className="add-btn bg-primary text-white btn"
+  onClick={() => setShowForm(true)}
+> +  Add new product </button>
           </div>
  </div>
  {/* Search Row */}

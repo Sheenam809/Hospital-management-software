@@ -1,11 +1,55 @@
-import React from "react";
+import React , { useState } from "react";
 import Header from "../components/common/Header";
 import SideNav from "../components/common/SideNav";
 import { FiDelete } from "react-icons/fi";
 import { RiAccountPinBoxFill } from "react-icons/ri";
 
 
+
+const AppointmentForm = ({ closeForm }) => {
+  return (
+    <div className="shadow-lg rounded p-4 bg-white mt-3">
+      <h4 className="mb-3">Add New Appointment</h4>
+
+      <div className="row">
+        <div className="col-md-6 mb-3">
+          <label>Patient Name</label>
+          <input type="text" className="form-control" />
+        </div>
+
+        <div className="col-md-3 mb-3">
+          <label>Age</label>
+          <input type="number" className="form-control" />
+        </div>
+
+        <div className="col-md-3 mb-3">
+          <label>Date</label>
+          <input type="date" className="form-control" />
+        </div>
+
+        <div className="col-md-6 mb-3">
+          <label>Doctor</label>
+          <input type="text" className="form-control" />
+        </div>
+
+        <div className="col-md-6 mb-3">
+          <label>Time</label>
+          <input type="text" className="form-control" placeholder="10:30 AM" />
+        </div>
+      </div>
+
+      <div className="d-flex gap-2">
+        <button className="btn btn-success">Save Appointment</button>
+        <button className="btn btn-secondary" onClick={closeForm}>
+          Cancel
+        </button>
+      </div>
+    </div>
+  );
+};
+
 const AppointmentPage = () => {
+   const [showForm, setShowForm] = useState(false);
   return (
     <div style={{ display: "flex" }}>
       <SideNav />
@@ -20,11 +64,19 @@ const AppointmentPage = () => {
         <Header />
 
         {/* Title Row */}
+        {showForm && <AppointmentForm closeForm={() => setShowForm(false)} />}
+
         <div className="p-2 bg-color">
         <div className="shadow-lg  d-flex justify-content-between m-3 p-3 bg-white text-align-center" 
           >
             <h2> Appointments </h2>
-            <button className="add-btn bg-primary text-white btn">+ New Appointments</button>
+            <button
+  className="add-btn bg-primary text-white btn"
+  onClick={() => setShowForm(true)}
+>
+  + New Appointments
+</button>
+
            </div>
             {/* Search + Date Row */}
         <div className="row d-flex align-items-center" style={{ marginTop: "20px" }}>
